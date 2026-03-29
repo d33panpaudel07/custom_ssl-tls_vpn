@@ -1,0 +1,64 @@
+# ─── Python bytecode & caches ───────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# ─── Virtual environments ────────────────────────────────────────────────────
+venv/
+env/
+.env/
+.venv/
+
+# ─── Type-checker caches ─────────────────────────────────────────────────────
+.mypy_cache/
+.pyre/
+.pyright/
+
+# ─── Test runner caches ──────────────────────────────────────────────────────
+.pytest_cache/
+.tox/
+htmlcov/
+.coverage
+coverage.xml
+
+# ─── VPN runtime logs ────────────────────────────────────────────────────────
+*.log
+custom_ssl_vpn/server/logs/
+server/logs/
+
+# ─── VPN credential store (contains hashed passwords — never commit) ─────────
+server_users.json
+server_users.json.tmp
+custom_ssl_vpn/server_users.json
+
+# ─── Debug / scratch artefacts ───────────────────────────────────────────────
+debug_trace.txt
+test_output.log
+server.log
+
+# ─── TLS certificates and private keys (never commit secrets) ────────────────
+*.key
+*.srl
+*.csr
+*.pem
+*.crt
+custom_ssl_vpn/server/certs/
+custom_ssl_vpn/client/certs/
+
+# ─── Editor / IDE directories ────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ─── OS-generated noise ──────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── Distribution / build artefacts ─────────────────────────────────────────
+dist/
+build/
+*.egg-info/

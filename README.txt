@@ -1,0 +1,3 @@
+All code have been refactored and documented by ai to make codebase more readable but it's like at what cost lmao since comments are more than the code written itself...
+
+Will remove once whole team gets comfortable traversing the codebase
