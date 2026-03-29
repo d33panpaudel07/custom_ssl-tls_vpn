@@ -30,3 +30,6 @@ Below are points about what we have in the current codebase:
 - We've also got a 'docs/' folder with all the deep-dives into the algorithms, threat models, and a demo script if we need to explain the math to anyone.
 
 Basically, we focused on the technical control—writing our own protocol and handling the sockets ourselves—rather than just wrapping a library. It’s all working and demo-ready.
+
+Still problem statement is a bit unclear we could still show that our project offers a Single Service Access Gateway where the admin defines exactly one rule: user X can reach host:port Y. No routing, no subnet access, nothing else. Think of it like SSH tunneling but with audit trail, rate-limiting, and session management built in.
+The tunnel connects to exactly one host:port specified at connection time in the CONNECT message. There's no subnet, no routing table, no broadcast domain. An attacker who steals the credentials gets a pipe to one port(and that is worst case scenario incase they get unauthorized access).
