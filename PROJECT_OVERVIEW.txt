@@ -1,5 +1,5 @@
 - What it can currently do: It lets us reach a private server (like a work website) that is normally blocked, through a secure tunnel.
-- What we give it: Your login and password.
+- What we give it: Our login and password.
 - What it gives us: We get access to the private site in our browser just like we're actually at the office.
 
 ---
