@@ -1,0 +1,32 @@
+- What it can currently do: It lets us reach a private server (like a work website) that is normally blocked, through a secure tunnel.
+- What we give it: Your login and password.
+- What it gives us: We get access to the private site in our browser just like we're actually at the office.
+
+---
+Below are points about what we have in the current codebase:
+
+1. THE SERVER STUFF (custom_ssl_vpn/server/)
+- vpn_server.py: The main gateway for connections. It handles the TLS handshake and manages the logic of accepting clients and giving them to a worker thread.
+- auth.py: This is where we do the heavy lifting for passwords. It uses PBKDF2 with 100,000 rounds so it's actually secure.
+- tunnel.py: This handles the raw data relay. It takes the bytes from the TLS tunnel and pushes them to the internal app.
+- security.py: Our mini-firewall. It checks IPs and blocks them if they fail too many logins.
+- monitoring.py: A little dashboard that shows active sessions and bytes transferred.
+- session.py: Keeps track of who is currently logged in and cleans up old connections.
+- config.py & logger.py: Standard stuff for handling settings and saving JSON logs.
+
+2. THE CLIENT STUFF (custom_ssl_vpn/client/)
+- vpn_client.py: The program you actually run to connect. It handles the login and sets up the local proxy.
+- forwarder.py: This is the local gateway. It listens on port 9000 and "snatches" your browser traffic to shove it into the VPN.
+- config.py: Holds the client-side settings (like which server to connect to).
+
+3. THE SHARED STUFF (custom_ssl_vpn/shared/)
+- protocol.py: We wrote our own mini-language for this. It defines how "AUTH" and "CONNECT" messages are formatted so both sides understand each other.
+- exceptions.py: Custom error codes we made for when things go wrong.
+
+4. UTILITIES
+- gen_certs.py: A script we wrote using the 'cryptography' library. It makes the CA and Server certificates automatically so we don't have to struggle with OpenSSL commands.
+
+5. DOCS
+- We've also got a 'docs/' folder with all the deep-dives into the algorithms, threat models, and a demo script if we need to explain the math to anyone.
+
+Basically, we focused on the technical control—writing our own protocol and handling the sockets ourselves—rather than just wrapping a library. It’s all working and demo-ready.
