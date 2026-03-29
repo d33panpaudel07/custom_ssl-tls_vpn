@@ -7,7 +7,7 @@ Below are points about what we have in the current codebase:
 
 1. THE SERVER STUFF (custom_ssl_vpn/server/)
 - vpn_server.py: The main gateway for connections. It handles the TLS handshake and manages the logic of accepting clients and giving them to a worker thread.
-- auth.py: This is where we do the heavy lifting for passwords. It uses PBKDF2 with 100,000 rounds so it's actually secure.
+- auth.py: This is where we do the heavy lifting for passwords. It uses PBKDF2 with 100,000 rounds.
 - tunnel.py: This handles the raw data relay. It takes the bytes from the TLS tunnel and pushes them to the internal app.
 - security.py: Our mini-firewall. It checks IPs and blocks them if they fail too many logins.
 - monitoring.py: A little dashboard that shows active sessions and bytes transferred.
